@@ -31,3 +31,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### 注意事项
 
 [] 正式域名是什么
+[] http://wisf54.natappfree.cc
+[] 文档修改

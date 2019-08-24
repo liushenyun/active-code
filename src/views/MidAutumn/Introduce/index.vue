@@ -34,9 +34,7 @@ export default {
       midLoginApiF({
         code: _search.code
       }).then((result) => {
-        alert(result.token)
         setToken(result.token)
-        console.log(result)
       }).catch((err) => {
         
       });

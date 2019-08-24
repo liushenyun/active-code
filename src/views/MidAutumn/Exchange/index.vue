@@ -43,10 +43,10 @@ export default {
       this.$router.push({
         name: 'PrizeDetails',
         params: {
-          // codeType: this.codeType || 6,
-          // vipCode: this.vipCode || 'NIAN01'
           codeType: this.codeType,
           vipCode: this.vipCode
+          // codeType: this.codeType,
+          // vipCode: this.vipCode
         }
       })
     },
