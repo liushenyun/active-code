@@ -1,0 +1,49 @@
+@import '../../../common/css/rem';
+@import '../../../common/css/const';
+.PrizeDetails-ctr {
+  height: 100%;
+  width: 100%;
+  padding: rem(24) 0;
+  .p-top-img {
+    overflow: hidden;
+    position: relative;
+    .code-text {
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      left: 0;
+      bottom: rem(104);
+      font-size: rem(32);
+      font-weight: bolder;
+      color:rgba(120,72,47,1);
+    }
+  }
+  .p-img {
+    width: 100%;
+  }
+  .p-wrap {
+    padding: 0 rem(48);
+    margin: rem(28) 0 rem(48) 0;
+    .p-con {
+      padding: rem(35) rem(40) rem(31) rem(40);
+      background:rgba(255,255,255,1);
+      box-shadow:0px rem(3) rem(9) rem(1) rgba(144,95,65,0.52);
+      border-radius: rem(10);
+      p {
+        font-size: rem(26);
+        line-height: rem(48);
+      }
+      p:nth-of-type(3) {
+        color: #AA0F0F
+      }
+    }
+  }
+  .p-scan-code {
+    text-align: center;
+    img {
+      width: rem(208);
+      height: rem(208);
+      border-radius: 1px solid red;
+    }
+  }
+}

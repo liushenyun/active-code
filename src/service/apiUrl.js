@@ -1,20 +1,16 @@
 import { Domain } from '../config/index'
 
-// 获取首页新闻列表
-const newsPageApi = () => `${Domain}/api/news/page`
+// 中秋节活动登陆
+const midLoginApi = () => `${Domain}/api/wx/user/web/login`
 
-// 登录
-const loginApi = () => `${Domain}/api/user/login`
+// 中秋节抽奖
+const midPrizeDrawApi = () => `${Domain}/api/prize/draw`
 
 // 获取jsapi配置
 const jsConfigApi = () => `${Domain}/wx/js/config`
 
-// 活动支付
-const activityPayApi = () => `${Domain}/api/activity/pay`
-
 export {
-  newsPageApi,
-  loginApi,
   jsConfigApi,
-  activityPayApi
+  midLoginApi,
+  midPrizeDrawApi
 };

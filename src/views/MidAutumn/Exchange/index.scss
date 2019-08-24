@@ -1,0 +1,72 @@
+@import '../../../common/css/rem';
+@import '../../../common/css/const';
+.exchange-ctr {
+  height: 100%;
+  width: 100%;
+  background: url('../../../image/exchange_bg_ic.png') no-repeat left top;
+  background-size: 100% 100%;
+  padding: rem(60) rem(30);
+  overflow: hidden;
+  .code-con {
+    background: #FFF;
+    width: 100%;
+    border-radius: rem(20);
+    padding: rem(109) rem(16);
+    text-align: center;
+    letter-spacing: rem(10);
+  }
+  .code-title1 {
+    font-size: rem(48);
+    font-family: PingFang SC;
+    font-weight: bolder;
+    color:rgba(77,77,77,1);
+  }
+  .code-input {
+    width: 100%;
+    height: rem(100);
+    line-height: rem(100);
+    padding: 0 rem(20);
+    border: rem(1) solid rgba(77, 77, 77, 0.1);
+    font-size: rem(36);
+    margin: rem(74) 0 rem(108) 0;
+    border-radius: rem(10);
+  }
+  .code-btn {
+    width: 70%;
+    margin-left: 15%;
+    height: rem(100);
+    line-height: rem(100);
+    background:linear-gradient(-45deg,rgba(247,141,69,1) 0%,rgba(253,161,59,1) 52%,rgba(248,142,69,1) 100%);
+    border-radius: rem(25);
+    text-align: center;
+    color:rgba(255,255,255,1);
+    font-size: rem(36);
+    font-weight: bolder;
+    letter-spacing: rem(12);
+  }
+  .code-title2 {
+    margin-top: rem(24);
+    font-size: rem(26);
+    color:rgba(102,102,102,1);
+  }
+  .dui-wrap {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    .dui-img-wrap {
+      position: relative;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: inline-block;
+      img {
+        width: rem(726);
+        margin-bottom: rem(20);
+      }
+
+    }
+  }
+}

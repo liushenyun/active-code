@@ -28,6 +28,10 @@ export default {
   .box{
     height: rem(120);
     width: rem(120);
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 </style>

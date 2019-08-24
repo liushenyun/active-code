@@ -1,7 +1,9 @@
 import Vue from "vue";
 import fetch from './index';
 import packagePromise from './packagePromise'
-import { newsPageApi, loginApi, activityPayApi } from './apiUrl';
+import { newsPageApi, loginApi, activityPayApi,
+  midLoginApi, midPrizeDrawApi } from './apiUrl';
+import {APP_ID} from '../config'
 import Validate from './Validate';
 import { aesEncrypt } from "../utils/dtAes";
 import isEmpty from "../utils/isEmpty";
@@ -20,11 +22,11 @@ import { send } from './formdata';
 //   }, 1400);
 // };
 
-// 获取新闻列表
-const apiNewsPageF = (data, fun) => packagePromise((resolve, reject) => {
+// 中秋节登录
+const midLoginApiF = (data, fun) => packagePromise((resolve, reject) => {
   fetch({
-    url: newsPageApi(),
-    method: 'GET',
+    url: midLoginApi(),
+    method: 'POST',
     data
   }, fun)
     .then(msg => {
@@ -33,25 +35,11 @@ const apiNewsPageF = (data, fun) => packagePromise((resolve, reject) => {
     .catch(err => reject(err))
 })
 
-// 登录
-const loginApiF = (data, fun) => packagePromise((resolve, reject) => {
+// 中秋节抽奖
+const midPrizeDrawApiF = (data, fun) => packagePromise((resolve, reject) => {
   fetch({
-    url: loginApi(),
-    method: 'GET',
-    data
-  }, fun)
-    .then(msg => {
-      resolve(msg)
-    })
-    .catch(err => reject(err))
-})
-
-// 活动支付
-// 登录
-const activityPayApiF = (data, fun) => packagePromise((resolve, reject) => {
-  fetch({
-    url: activityPayApi(),
-    method: 'GET',
+    url: midPrizeDrawApi(),
+    method: 'POST',
     data
   }, fun)
     .then(msg => {
@@ -61,16 +49,17 @@ const activityPayApiF = (data, fun) => packagePromise((resolve, reject) => {
 })
 
 // 获取微信code
-const getWeCodeA = (appid) => {
+const getWeCodeA = () => {
+  let _appid = APP_ID
   let REDIRECT_URI = encodeURIComponent(location.href)
-  let url = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appid}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect`
-  window.open(url)
+  // let REDIRECT_URI = 'http://testweixin.51vip.biz/mid'
+  let url = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${_appid}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect`
+  location.replace(url)
 }
 
 export {
   // SuccessTips,
-  apiNewsPageF,
   getWeCodeA,
-  loginApiF,
-  activityPayApiF
+  midLoginApiF,
+  midPrizeDrawApiF
 }

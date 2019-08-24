@@ -1,0 +1,22 @@
+@import '../../../common/css/rem';
+@import '../../../common/css/const';
+.sign-ctr {
+  width: 100%;
+  min-height: 100%;
+  background: $color-b;
+  font-size: 0;
+  .bg {
+    width: 100%;
+  }
+  .dui-btn {
+    position: fixed;
+    right: 0;
+    bottom: rem(60);
+    width: rem(250);
+    height: rem(250);
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

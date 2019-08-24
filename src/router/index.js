@@ -1,40 +1,42 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-const Home = () => import('../views/Home/index')
-const MeetSummary = () => import('../views/MeetSummary/index')
-const Sign = () => import('../views/Sign/index')
-const ShowImage = () => import('../views/ShowImage/index')
-const SignSuccess = () => import('../views/SignSuccess/index')
+
+const Error = () => import('../views/Error/index') // 404
+// 中秋节活动
+const MidHome = () => import('../views/MidAutumn/Home/index')
+const Introduce = () => import('../views/MidAutumn/Introduce/index')
+const Exchange = () => import('../views/MidAutumn/Exchange/index')
+const PrizeDetails = () => import('../views/MidAutumn/PrizeDetails/index')
 
 Vue.use(Router)
-
 const VueRouter = new Router({
   mode: 'history',
   routes: [
     {
         path: '/',
-        name: 'home',
-        component: Home
+        name: 'error',
+        component: Error
     },
     {
-        path: '/MeetSummary',
-        name: 'MeetSummary',
-        component: MeetSummary
-    },
-    {
-        path: '/sign',
-        name: 'sign',
-        component: Sign
-    },
-    {
-        path: '/signSuccess',
-        name: 'signSuccess',
-        component: SignSuccess
-    },
-    {
-        path: '/showImage',
-        name: 'showImage',
-        component: ShowImage
+        path: '/mid',
+        component: MidHome,
+        children: [
+            {
+                path: '',
+                name: 'Introduce',
+                component: Introduce
+            },
+            {
+                path: 'exchange',
+                name: 'Exchange',
+                component: Exchange
+            },
+            {
+                path: 'details',
+                name: 'PrizeDetails',
+                component: PrizeDetails
+            }
+        ]
     }
   ]
 })

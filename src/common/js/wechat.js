@@ -4,13 +4,14 @@
  * 微信开发配置
  */
 import fetch from '../../service/index';
+import { APP_ID } from '../../config/index'
 
 const wechat = {};
 
 wechat.properties = {
-    appId:"wx19e86539dded8a42",
-    debug:true,
-    interface :{
+    appId: APP_ID,
+    debug: true,
+    interface: {
         onMenuShareTimeline:'onMenuShareTimeline',
         onMenuShareAppMessage:'onMenuShareAppMessage',
         onMenuShareQQ:'onMenuShareQQ',

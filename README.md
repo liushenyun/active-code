@@ -1,4 +1,4 @@
-# cheng-home
+# 活动
 
 ## Project setup
 ```
@@ -27,3 +27,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### 注意事项
+
+[] 正式域名是什么
