@@ -22,7 +22,12 @@ export default {
 @import "../common/css/rem";
 @import "../common/css/mixin";
 #loading{
-  @include over;
+  position: fixed;
+	top: 0;
+  left: 0;
+	right: 0;
+  bottom: 0;
+  z-index: 9999;
   @include flex(center, center);
   background-color: rgba(255, 255, 255, 0.5);
   .box{

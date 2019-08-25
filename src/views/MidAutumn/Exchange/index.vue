@@ -70,7 +70,6 @@ export default {
         this.codeType = type
         this.vipCode = vipCode
         this.showPop = true
-        console.log(result)
       }).catch((err) => {
         
       });

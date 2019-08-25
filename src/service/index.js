@@ -57,7 +57,6 @@ const fetchs = (options, fun) => {
       .then(response => {
         setTimeout(_closeLoading, 500);
         let { status, data } = response
-        console.log(status, data)
         let errorCode = data.code === undefined ? 'none' : Number(data.code)
         let errMsg = data.message
         let result = data.data

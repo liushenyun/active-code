@@ -19,4 +19,34 @@
       height: 100%;
     }
   }
+
+  .show-code {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, .7);
+    .show-code-wrap {
+      display: inline-block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      p {
+        height: rem(60);
+        line-height: rem(60);
+        color: #FFF;
+        font-size: rem(30);
+        white-space: nowrap;
+      }
+      img {
+        width: rem(320);
+        height: rem(320);
+      }
+    }
+    
+  }
 }

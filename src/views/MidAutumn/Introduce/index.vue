@@ -4,6 +4,12 @@
     <div class="dui-btn" @click="toExchange">
       <img src="../../../image/mid_dui_btn.png" alt="">
     </div>
+    <div class="show-code" v-if="!isSubscribe">
+      <div class="show-code-wrap">
+        <p>请先关注公众号，再进行抽奖</p>
+        <img src="../../../image/scan_er.png" alt="">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -17,6 +23,7 @@ export default {
   name: 'Introduce',
   data () {
     return {
+      isSubscribe: true
     }
   },
   components: {},
@@ -34,7 +41,10 @@ export default {
       midLoginApiF({
         code: _search.code
       }).then((result) => {
-        setToken(result.token)
+        let { isSubscribe, webToken } = result
+        this.isSubscribe = isSubscribe
+        this.$apply()
+        setToken(webToken)
       }).catch((err) => {
         
       });
