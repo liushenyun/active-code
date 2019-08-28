@@ -31,7 +31,7 @@
 
     <div class="p-scan-code">
       <img v-if="codeType == 6 || codeType == 7" src="../../../image/scan_xiao.png" alt="">
-      <img v-else src="../../../image/scan_er.png" alt="">
+      <img v-else src="../../../image/kf.png" alt="">
     </div>
   </div>
 </template>

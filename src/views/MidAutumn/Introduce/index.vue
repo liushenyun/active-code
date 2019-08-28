@@ -43,7 +43,6 @@ export default {
       }).then((result) => {
         let { isSubscribe, webToken } = result
         this.isSubscribe = isSubscribe
-        this.$apply()
         setToken(webToken)
       }).catch((err) => {
         
