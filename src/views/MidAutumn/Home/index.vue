@@ -17,6 +17,11 @@ export default {
   components: {},
   methods: {
   },
+  beforeRouteLeave(to, from, next) {
+    debugger
+    history.pushState(null, null, location.search.replace(/code/g, 'XX'))
+    next()
+  },
   watch: {},
   mounted () {}
 }

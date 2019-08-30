@@ -4,6 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div> -->
+    <show-scan></show-scan>
     <pub-loading></pub-loading>
     <transition name='fade' mode="out-in">
       <router-view/>
@@ -14,11 +15,43 @@
 
 <script>
 import PubLoading from "./components/Loading"
-
+import { userIsloginApiF, midLoginApiF, getWeCodeA } from '@/service/requestFun'
+import puGetSearch from '@/utils/puGetSearch'
+import { setToken } from '@/common/js/ut'
 export default {
   name: 'app',
   components: {
     PubLoading
+  },
+  methods: {
+    userIsloginApiFA(fun) {
+      userIsloginApiF({}, fun).then((result) => {
+        let { subscribe, login } = result
+        if (!login) {
+          getWeCodeA()
+          return
+        }
+        this.$store.dispatch('showScan', subscribe)
+      }).catch(() => {
+      });
+    }
+  },
+  mounted() {
+    let _search = puGetSearch()
+    if (_search.code) {
+      midLoginApiF({
+        code: _search.code,
+        state: 1
+      }).then((result) => {
+        let { subscribe, token } = result
+        setToken(token)
+        this.$store.dispatch('showScan', subscribe)
+      }).catch((err) => {
+        
+      });
+    } else {
+      this.userIsloginApiFA(this.userIsloginApiFA.bind(this))
+    }
   }
 }
 </script>

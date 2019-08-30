@@ -34,23 +34,12 @@ export default {
       })
     }
   },
+  beforeRouteLeave(to, from, next) {
+    history.pushState(null, null, location.search.replace(/code/g, 'XX'))
+    next()
+  },
   watch: { },
-  mounted () {
-    let _search = puGetSearch()
-    if (_search.code) {
-      midLoginApiF({
-        code: _search.code
-      }).then((result) => {
-        let { isSubscribe, webToken } = result
-        this.isSubscribe = isSubscribe
-        setToken(webToken)
-      }).catch((err) => {
-        
-      });
-    } else {
-      getWeCodeA()
-    }
-  }
+  mounted () {}
 }
 </script>
 

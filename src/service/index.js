@@ -24,7 +24,7 @@ const _closeLoading = () => { Store.dispatch('showLoading', false) };
 const _openLoading = () => { Store.dispatch('showLoading', true) };
 
 const fetchs = (options, fun) => {
-  let params = options.data
+  let params = options.data || {}
   let _header = Object.assign({}, options.header)
   params = formatParams(params); // 参数序列化
   // if (url !== 'account/login') {
@@ -65,6 +65,8 @@ const fetchs = (options, fun) => {
              resolve(result)
           } else if (errorCode == 401) {
             getWeCodeA(APP_ID)
+          } else if (errorCode == 403) {
+            Store.dispatch('showScan', false)
           } else {
             Vue.prototype.$toast(errMsg)
           }

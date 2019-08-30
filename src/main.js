@@ -7,6 +7,8 @@ import 'mint-ui/lib/style.css'
 import { Button, Tabbar, TabItem, TabContainer, TabContainerItem,
   Cell, Toast, Picker } from 'mint-ui'
 import LinkageBase from './components/linkageBase';
+import ShowScan from './components/ShowScan/index'
+Vue.use(ShowScan);
 Vue.use(LinkageBase);
 Vue.component(Tabbar.name, Tabbar);
 Vue.component(TabItem.name, TabItem);

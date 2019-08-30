@@ -18,11 +18,11 @@ module.exports = {
             //     changeOrigin: true
             // },
             '/api/wx': {
-                target: 'http://wisf54.natappfree.cc',
+                target: 'http://t9zfdf.natappfree.cc',
                 changeOrigin: true
             },
             '/api/prize': {
-                target: 'http://wisf54.natappfree.cc',
+                target: 'http://t9zfdf.natappfree.cc',
                 changeOrigin: true
             }
         },
