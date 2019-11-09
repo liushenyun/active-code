@@ -38,7 +38,6 @@ const userIsloginApiF = (data = {}, fun) => packagePromise((resolve, reject) => 
     })
     .catch(err => reject(err))
 })
-
 // 中秋节登录
 const midLoginApiF = (data, fun) => packagePromise((resolve, reject) => {
   fetch({

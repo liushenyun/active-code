@@ -1,3 +1,6 @@
+
+const domain = "http://192.168.7.200:8080";
+
 module.exports = {
     devServer: {
         proxy: {
@@ -18,11 +21,11 @@ module.exports = {
             //     changeOrigin: true
             // },
             '/api/wx': {
-                target: 'http://t9zfdf.natappfree.cc',
+                target: domain,
                 changeOrigin: true
             },
             '/api/prize': {
-                target: 'http://t9zfdf.natappfree.cc',
+                target: domain,
                 changeOrigin: true
             }
         },

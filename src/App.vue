@@ -47,7 +47,7 @@ export default {
         setToken(token)
         this.$store.dispatch('showScan', subscribe)
       }).catch((err) => {
-        
+
       });
     } else {
       this.userIsloginApiFA(this.userIsloginApiFA.bind(this))

@@ -7,6 +7,7 @@ const MidHome = () => import('../views/MidAutumn/Home/index')
 const Introduce = () => import('../views/MidAutumn/Introduce/index')
 const Exchange = () => import('../views/MidAutumn/Exchange/index')
 const PrizeDetails = () => import('../views/MidAutumn/PrizeDetails/index')
+const MemberActivited = () => import('../views/MemberActivited/index')
 
 Vue.use(Router)
 const VueRouter = new Router({
@@ -37,6 +38,11 @@ const VueRouter = new Router({
                 component: PrizeDetails
             }
         ]
+    },
+    {
+      path: '/memberActivited',
+      name: 'MemberActivited',
+      component: MemberActivited
     }
   ]
 })
