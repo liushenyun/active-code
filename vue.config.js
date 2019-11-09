@@ -1,5 +1,5 @@
 
-const domain = "http://192.168.7.200:8080";
+const domain = "";
 
 module.exports = {
     devServer: {

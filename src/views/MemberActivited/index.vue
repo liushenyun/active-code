@@ -1,7 +1,7 @@
 <template>
   <div class="exchange-ctr">
     <div class="code-con">
-      <p> 11月8号上午10点，成氏商城试运行首次会员日活动推出仅2小时，就吸引了大量用户参与，
+      <p id="content"> 11月8号上午10点，成氏商城试运行首次会员日活动推出仅2小时，就吸引了大量用户参与，
         导致服务器拥堵长达半小时。应广大会员用户的要求，商城团队连夜新开发多项功能如月卡升级功能，
         有用户反馈：此次活动力度甚至超过双11，1元就能买超值大物件，薅羊毛也不过如此......
       </p>
@@ -23,6 +23,9 @@
 
 <script>
 // @ is an alias to /src
+import wechat from "../../common/js/wechat";
+import { jsConfigApi } from '../../service/apiUrl';
+
 export default {
   name: 'Exchange',
   data () {
@@ -32,10 +35,34 @@ export default {
   },
   components: {  },
   methods: {
-
+      shareFriend () {
+          let iners = [
+              wechat.properties.interface.updateAppMessageShareData,
+          ];
+          let desc = this.description;
+          if (desc == null || desc == '') {
+              let dom = document.getElementById('content');
+              let text = dom.innerText;
+              desc = text.substring(0, 10);
+          }
+          let icon = "https://csfamily-1259120104.cos.ap-guangzhou.myqcloud.com/static/logo.jpg";
+          let param = {
+              title: this.title, // 分享标题
+              link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+              imgUrl: icon,
+              desc: desc
+          };
+          wechat.config(iners, jsConfigApi(), function (r) {
+              wx.ready(function () {
+                  wechat.updateTimelineShareData(param); //分享朋友圈
+                  wechat.updateAppMessageShareData(param); //分享给好友
+              });
+          });
+      },
   },
   watch: { },
   mounted () {
+      this.shareFriend();
   }
 }
 </script>
